@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.UserDao">
+	<select id="selectByAccount" resultType="com.test.bean.User">
+		select * from user where account=#{account}
+	</select>
+	<select id="selectAllUser" resultType="com.test.bean.User">
+		select * from user 
+	</select>
+	<insert id="addUser" >
+		insert into user (account,password,status)
+		values (#{account},#{password},#{status})
+	</insert>
+	<select id="selectByUserAccount" resultType="com.test.bean.User">
+		select * from user where account=#{account}
+	</select>
+	<delete id="delUserByAccount">
+		delete from user where account=#{account}
+	</delete>
+	<select id="selUserById" resultType="com.test.bean.User">
+		select * from user where id=#{id}
+	</select>	
+	<update id="updateUser">
+		update user 
+		set account=#{account},password=#{password}
+		where id=#{id}
+	</update>
+</mapper>
